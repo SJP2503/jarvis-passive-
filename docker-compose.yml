@@ -1,0 +1,12 @@
+services:
+  jarvis_passive_api:
+    build: ./services/passive_api
+    container_name: jarvis_passive_api
+    restart: unless-stopped
+    env_file:
+      - ./services/passive_api/.env
+    ports:
+      - "7070:7070"
+    volumes:
+      - ./data:/app/data
+      - ./blocklists:/app/blocklists
